@@ -116,7 +116,6 @@ ask_dhl("How much to ship 5kg from New York to London?")
 |--------|-------------|--------|
 | Recall@10 | Source document in top 10 results | > 85% |
 | MRR | Mean Reciprocal Rank | > 0.8 |
-| Keyword Recall | Expected keywords found | > 75% |
 | LLM Score | Generation quality (1-5) | > 4.0 |
 
 ## Key Implementation Details
