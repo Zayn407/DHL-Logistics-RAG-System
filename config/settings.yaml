@@ -1,0 +1,34 @@
+# DHL RAG System Configuration
+
+ollama:
+  base_url: ${OLLAMA_BASE_URL:-http://localhost:11434}
+  model: ${OLLAMA_MODEL:-mistral}
+  temperature: 0.3
+
+chroma:
+  host: ${CHROMA_HOST:-localhost}
+  port: ${CHROMA_PORT:-8000}
+  persist_directory: ${CHROMA_PERSIST_DIR:-./chroma_db}
+  collection_name: dhl_knowledge
+
+chunking:
+  method: semantic  # semantic or fixed
+  threshold_type: percentile
+  threshold_amount: 85
+  fallback_chunk_size: 1000
+  fallback_chunk_overlap: 200
+
+retriever:
+  search_type: similarity
+  k: 10
+
+evaluation:
+  num_samples: 10
+  metrics:
+    - recall_at_k
+    - mrr
+    - llm_judge
+
+logging:
+  level: INFO
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
